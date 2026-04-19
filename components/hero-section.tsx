@@ -20,10 +20,10 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[13.4vw] font-extrabold leading-[0.88] tracking-[-0.07em] text-foreground sm:text-[11vw] lg:text-[8.6rem]"
+            className="font-display font-extrabold leading-[0.88] tracking-[-0.07em] text-foreground"
           >
-            <span className="block">Hashir</span>
-            <span className="block">Muhammed</span>
+            <span className="block text-[13.4vw] sm:text-[11vw] lg:text-[8.6rem]">Hashir</span>
+            <span className="block text-[11.8vw] sm:text-[11vw] lg:text-[8.6rem]">Muhammed</span>
           </motion.h1>
 
           <motion.p

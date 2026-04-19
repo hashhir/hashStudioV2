@@ -53,13 +53,13 @@ export function InfoSections() {
           </div>
         </section>
 
-        <section id="about" className="grid scroll-mt-28 gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:scroll-mt-32">
+        <section id="about" className="grid scroll-mt-28 gap-8 overflow-x-clip lg:grid-cols-[1.1fr_0.9fr] lg:scroll-mt-32">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.7 }}
-            className="glass-panel rounded-[2rem] p-6 sm:p-10"
+            className="glass-panel min-w-0 overflow-hidden rounded-[2rem] p-6 sm:p-10"
           >
             <p className="text-xs uppercase tracking-[0.45em] text-muted sm:text-sm">About</p>
             <h2 className="mt-6 max-w-xl font-display text-4xl font-extrabold uppercase leading-tight tracking-[-0.05em] sm:text-5xl">
@@ -76,7 +76,7 @@ export function InfoSections() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.35 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="glass-panel rounded-[2rem] p-6 sm:p-10"
+            className="glass-panel min-w-0 overflow-hidden rounded-[2rem] p-6 sm:p-10"
           >
             <p className="text-xs uppercase tracking-[0.45em] text-muted sm:text-sm">Focus</p>
             <div className="mt-6 space-y-5 text-sm uppercase tracking-[0.18em] text-foreground/85 sm:text-base">
@@ -91,7 +91,7 @@ export function InfoSections() {
         <section id="contact" className="glass-panel scroll-mt-28 rounded-[2rem] p-6 sm:scroll-mt-32 sm:p-10">
           <p className="text-xs uppercase tracking-[0.45em] text-muted sm:text-sm">Contact</p>
           <div className="mt-6 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <h2 className="max-w-3xl font-display text-4xl font-extrabold uppercase leading-tight tracking-[-0.05em] sm:text-5xl lg:text-6xl">
+            <h2 className="max-w-[16rem] break-words font-display text-[1.9rem] font-extrabold uppercase leading-[1.02] tracking-[-0.05em] sm:max-w-3xl sm:text-5xl sm:leading-tight lg:text-6xl">
               Let&apos;s build calm, sharp, and meaningful digital experiences.
             </h2>
             <div className="text-sm text-muted sm:text-base">
