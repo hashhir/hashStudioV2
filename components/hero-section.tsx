@@ -11,7 +11,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45 }}
-            className="mb-6 text-xs uppercase tracking-[0.45em] text-muted sm:text-sm"
+            className="mb-5 text-[0.65rem] uppercase tracking-[0.34em] text-muted sm:mb-6 sm:text-sm sm:tracking-[0.45em]"
           >
             Senior Software Developer
           </motion.p>
@@ -20,7 +20,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display text-[16vw] font-extrabold leading-[0.86] tracking-[-0.08em] text-foreground sm:text-[11vw] lg:text-[8.6rem]"
+            className="font-display text-[13.4vw] font-extrabold leading-[0.88] tracking-[-0.07em] text-foreground sm:text-[11vw] lg:text-[8.6rem]"
           >
             <span className="block">Hashir</span>
             <span className="block">Muhammed</span>
@@ -30,7 +30,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.75 }}
-            className="mt-8 max-w-2xl text-[0.82rem] uppercase leading-6 tracking-[0.08em] text-muted sm:text-[0.9rem]"
+            className="mt-6 max-w-[18rem] text-[0.72rem] uppercase leading-5 tracking-[0.07em] text-muted sm:mt-8 sm:max-w-2xl sm:text-[0.9rem] sm:leading-6 sm:tracking-[0.08em]"
           >
             <span className="block">Indian raised, Kochi based</span>
             <span className="block">THREE years of experience in backend</span>

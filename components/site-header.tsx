@@ -52,9 +52,25 @@ export function SiteHeader() {
             aria-label="Toggle menu"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((value) => !value)}
-            className="glass-panel flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-foreground"
+            className="glass-panel flex h-10 w-10 items-center justify-center rounded-full text-foreground"
           >
-            Menu
+            <span className="relative flex h-4 w-4 items-center justify-center">
+              <motion.span
+                animate={{ y: menuOpen ? 0 : -4, rotate: menuOpen ? 45 : 0 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="absolute h-[1.5px] w-4 rounded-full bg-current"
+              />
+              <motion.span
+                animate={{ opacity: menuOpen ? 0 : 1 }}
+                transition={{ duration: 0.18, ease: "easeOut" }}
+                className="absolute h-[1.5px] w-4 rounded-full bg-current"
+              />
+              <motion.span
+                animate={{ y: menuOpen ? 0 : 4, rotate: menuOpen ? -45 : 0 }}
+                transition={{ duration: 0.2, ease: "easeOut" }}
+                className="absolute h-[1.5px] w-4 rounded-full bg-current"
+              />
+            </span>
           </button>
         </div>
       </div>
