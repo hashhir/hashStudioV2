@@ -72,24 +72,71 @@ const phaseTwoButtons = [
     label: "Spring Boot",
     outlineClass: "border-[#5f8f69] text-[#5f8f69] dark:border-[#88c790] dark:text-[#88c790]",
     title: "Spring Boot",
-    description: "Details for this card are ready for the next step as soon as you share them.",
-    contentType: "placeholder" as const,
+    description: "Production backend work focused on telematics ingestion, scoring pipelines, and stable large-scale operations.",
+    contentType: "rich" as const,
+    cardHeading: "Production Grade Telematics Backend",
+    content: [
+      "Developed and maintained a high-throughput telematics backend to ingest real-time trip data from mobile devices, process driving behavior, and generate driver scores.",
+      "Designed and implemented Spring Boot microservices to handle trip ingestion, validation, persistence, and downstream processing.",
+      "Integrated Apache Kafka for reliable, asynchronous streaming of trip events to Big Data systems for large-scale analytics.",
+      "Worked extensively with PostgreSQL (AWS RDS) for transactional data storage, query optimization, and data maintenance in production.",
+      "Led deployment, configuration, and runtime management of Spring Boot applications on RHEL with JBoss EAP hosted on AWS EC2 using Jenkins.",
+      "Supported production operations including performance tuning, log analysis, issue triage, and scheduled job stability.",
+      "Contributed to an AngularJS-based admin portal enabling user and driver management, real-time dashboards and reports, and configuration of scoring logic and system parameters.",
+    ],
   },
   {
     id: "genai",
     label: "GenAi",
     outlineClass: "border-[#5e75d8] text-[#5e75d8] dark:border-[#8da0ff] dark:text-[#8da0ff]",
     title: "GenAi",
-    description: "Details for this card are ready for the next step as soon as you share them.",
-    contentType: "placeholder" as const,
+    description: "Backend and AI workflow engineering for real-time contact-centre support and agent assistance.",
+    contentType: "rich" as const,
+    cardHeading: "Contact Centre Assistant (Backend + AI Systems)",
+    content: [
+      "Built backend APIs using FastAPI (Python) for a GenAI-powered contact centre assistant used by customer support executives.",
+      "Designed and implemented agent workflows using LangGraph, enabling multi-step reasoning and dynamic decision-making.",
+      "Integrated LLMs to provide live conversation assistance based on real-time transcripts, follow-up question suggestions and response guidance, and detection of slang, ambiguous, and complex customer language.",
+      "Implemented dynamic data retrieval from DynamoDB to fetch customer profiles, interaction history, and contextual metadata during live calls.",
+      "Integrated a knowledge base for company terms, policies, and FAQs to deliver accurate, context-aware responses.",
+      "Developed features for competitor analysis, enabling agents to respond effectively to comparison-based customer queries.",
+      "Automated form auto-filling and recommendation workflows, reducing manual effort for contact centre executives.",
+    ],
   },
   {
     id: "personal-projects",
     label: "Personal Projects",
     outlineClass: "border-[#af6dd1] text-[#af6dd1] dark:border-[#d39dff] dark:text-[#d39dff]",
     title: "Personal Projects",
-    description: "Details for this card are ready for the next step as soon as you share them.",
-    contentType: "placeholder" as const,
+    description: "A lighter side of the portfolio: curiosity-led builds from my learning phase, made while exploring, experimenting, and enjoying the process.",
+    contentType: "projects" as const,
+    cardHeading: "Built from curiosity, late-night learning, and a lot of experimenting",
+    content: [
+      "These are projects I made out of curiosity during my learning phase in academics. They are playful, exploratory, and each one marks a small step in how I learned to build for the web.",
+    ],
+    projects: [
+      {
+        name: "HashStudio Portfolio",
+        href: "https://hashhir.github.io/hashstudio/",
+        description: "A portfolio project developed using HTML, CSS, Flexbox, and JavaScript.",
+        accentClass:
+          "border-[#e05b4f] bg-[#e05b4f]/10 text-[#e05b4f] hover:bg-[#e05b4f] hover:text-white dark:border-[#ff8d7f] dark:bg-[#ff8d7f]/10 dark:text-[#ff8d7f] dark:hover:bg-[#ff8d7f] dark:hover:text-[#090909]",
+      },
+      {
+        name: "React Netflix Clone",
+        href: "https://hashhir.github.io/React-Project-Netflix/",
+        description: "A simple Netflix clone built with React that works dynamically using external APIs.",
+        accentClass:
+          "border-[#5e75d8] bg-[#5e75d8]/10 text-[#5e75d8] hover:bg-[#5e75d8] hover:text-white dark:border-[#8da0ff] dark:bg-[#8da0ff]/10 dark:text-[#8da0ff] dark:hover:bg-[#8da0ff] dark:hover:text-[#090909]",
+      },
+      {
+        name: "TinDog",
+        href: "https://hashhir.github.io/TinDog/",
+        description: "A simple responsive project and the first one I deployed. Still a special milestone for me.",
+        accentClass:
+          "border-[#7b8f4e] bg-[#7b8f4e]/10 text-[#7b8f4e] hover:bg-[#7b8f4e] hover:text-white dark:border-[#a6c96c] dark:bg-[#a6c96c]/10 dark:text-[#a6c96c] dark:hover:bg-[#a6c96c] dark:hover:text-[#090909]",
+      },
+    ],
   },
 ];
 
@@ -308,6 +355,63 @@ export function InfoSections() {
                         {skill}
                       </motion.span>
                     ))}
+                  </div>
+                ) : activeCard.contentType === "rich" ? (
+                  <div className="rounded-[1.5rem] border border-border bg-background/25 p-5 sm:p-6">
+                    <h4 className="font-display text-2xl font-extrabold uppercase tracking-[-0.04em] text-foreground sm:text-3xl">
+                      {activeCard.cardHeading}
+                    </h4>
+                    <div className="mt-5 space-y-4">
+                      {activeCard.content?.map((item, index) => (
+                        <motion.p
+                          key={`${activeCard.id}-${index}`}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.28, delay: index * 0.04 }}
+                          className="text-sm leading-7 text-muted sm:text-base"
+                        >
+                          {item}
+                        </motion.p>
+                      ))}
+                    </div>
+                  </div>
+                ) : activeCard.contentType === "projects" ? (
+                  <div className="rounded-[1.5rem] border border-border bg-background/25 p-5 sm:p-6">
+                    <h4 className="font-display text-2xl font-extrabold tracking-[-0.04em] text-foreground sm:text-3xl">
+                      {activeCard.cardHeading}
+                    </h4>
+                    <p className="mt-4 max-w-3xl text-sm leading-7 text-muted sm:text-base">
+                      {activeCard.content?.[0]}
+                    </p>
+
+                    <div className="mt-6 grid gap-4">
+                      {activeCard.projects?.map((project, index) => (
+                        <motion.div
+                          key={project.href}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.28, delay: index * 0.05 }}
+                          className="rounded-[1.2rem] border border-border bg-background/35 p-4 sm:p-5"
+                        >
+                          <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                            <div>
+                              <h5 className="font-display text-xl font-bold text-foreground">{project.name}</h5>
+                              <p className="mt-2 max-w-2xl text-sm leading-7 text-muted sm:text-base">
+                                {project.description}
+                              </p>
+                            </div>
+                            <Link
+                              href={project.href}
+                              target="_blank"
+                              rel="noreferrer"
+                              className={`inline-flex items-center justify-center rounded-lg border px-3 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition-colors duration-300 ${project.accentClass}`}
+                            >
+                              Visit
+                            </Link>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
                   </div>
                 ) : (
                   <div className="rounded-[1.5rem] border border-dashed border-border bg-background/30 p-6 text-sm leading-7 text-muted sm:text-base">
