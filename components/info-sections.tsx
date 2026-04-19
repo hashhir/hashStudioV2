@@ -287,9 +287,10 @@ export function InfoSections() {
                   type="button"
                   aria-label="Close card"
                   onClick={() => setActiveCard(null)}
-                  className="flex h-10 min-w-10 shrink-0 items-center justify-center rounded-full border border-border bg-background/40 px-3 text-[10px] font-semibold uppercase tracking-[0.08em] text-foreground transition-colors duration-300 hover:border-accent hover:text-accent"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border bg-background/40 text-base font-semibold text-foreground transition-colors duration-300 hover:border-accent hover:text-accent sm:min-w-10 sm:px-3 sm:text-[10px] sm:uppercase sm:tracking-[0.08em]"
                 >
-                  Close
+                  <span className="sm:hidden">X</span>
+                  <span className="hidden sm:inline">Close</span>
                 </button>
               </div>
 
