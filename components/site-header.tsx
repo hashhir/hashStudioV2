@@ -1,7 +1,8 @@
 "use client";
 
+import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { useState } from "react";
 
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -12,6 +13,8 @@ const navItems = [
 ];
 
 export function SiteHeader() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -24 }}
@@ -27,7 +30,7 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        <div className="flex items-center gap-3 sm:gap-6">
+        <div className="hidden items-center gap-3 sm:gap-6 md:flex">
           <nav className="flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-muted sm:gap-4 sm:text-sm sm:tracking-[0.24em]">
             {navItems.map((item) => (
               <Link
@@ -41,7 +44,47 @@ export function SiteHeader() {
           </nav>
           <ThemeToggle />
         </div>
+
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle compact />
+          <button
+            type="button"
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((value) => !value)}
+            className="glass-panel flex h-10 min-w-10 items-center justify-center rounded-full px-3 text-[10px] font-semibold uppercase tracking-[0.24em] text-foreground"
+          >
+            Menu
+          </button>
+        </div>
       </div>
+
+      <AnimatePresence>
+        {menuOpen ? (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="mx-auto mt-3 max-w-7xl px-1 md:hidden"
+          >
+            <div className="glass-panel rounded-[1.5rem] p-2">
+              <nav className="flex flex-col">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="rounded-[1rem] px-4 py-3 text-sm uppercase tracking-[0.24em] text-muted transition-colors duration-300 hover:bg-background/50 hover:text-foreground"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </motion.header>
   );
 }

@@ -30,10 +30,10 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.75 }}
-            className="mt-8 max-w-2xl text-sm leading-6 tracking-[0.06em] text-muted sm:text-base"
+            className="mt-8 max-w-2xl text-[0.82rem] uppercase leading-6 tracking-[0.08em] text-muted sm:text-[0.9rem]"
           >
             <span className="block">Indian raised, Kochi based</span>
-            <span className="block">3 years of experience in backend</span>
+            <span className="block">THREE years of experience in backend</span>
             <span className="block">Java, Spring Boot, python, GenAi</span>
           </motion.p>
         </div>

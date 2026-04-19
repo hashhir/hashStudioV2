@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-export function ThemeToggle() {
+export function ThemeToggle({ compact = false }: { compact?: boolean }) {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -13,10 +13,35 @@ export function ThemeToggle() {
   }, []);
 
   if (!mounted) {
-    return <div className="h-10 w-20 rounded-full border border-border/70" />;
+    return compact ? (
+      <div className="h-10 w-10 rounded-full border border-border/70" />
+    ) : (
+      <div className="h-10 w-20 rounded-full border border-border/70" />
+    );
   }
 
   const isDark = resolvedTheme === "dark";
+
+  if (compact) {
+    return (
+      <button
+        type="button"
+        onClick={() => setTheme(isDark ? "light" : "dark")}
+        className="glass-panel relative flex h-10 w-10 items-center justify-center rounded-full"
+        aria-label="Toggle theme"
+      >
+        <motion.span
+          animate={{
+            scale: isDark ? 1 : 0.72,
+            opacity: 1,
+            backgroundColor: isDark ? "rgb(var(--foreground))" : "rgb(var(--accent))",
+          }}
+          transition={{ type: "spring", stiffness: 320, damping: 24 }}
+          className="h-3.5 w-3.5 rounded-full"
+        />
+      </button>
+    );
+  }
 
   return (
     <button
