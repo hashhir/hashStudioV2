@@ -4,6 +4,27 @@ import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+type CardContentType = "skills" | "rich" | "projects" | "placeholder";
+
+type ProjectLink = {
+  name: string;
+  href: string;
+  description: string;
+  accentClass: string;
+};
+
+type PhaseTwoCard = {
+  id: string;
+  label: string;
+  outlineClass: string;
+  title: string;
+  description: string;
+  contentType: CardContentType;
+  cardHeading?: string;
+  content?: string[];
+  projects?: ProjectLink[];
+};
+
 const workItems = [
   {
     title: "Enterprise Backend Systems",
@@ -57,7 +78,7 @@ const skillBubbleStyles = [
   "border-[#c78635] text-[#c78635] dark:border-[#f0b563] dark:text-[#f0b563]",
 ];
 
-const phaseTwoButtons = [
+const phaseTwoButtons: PhaseTwoCard[] = [
   {
     id: "technical-skills",
     label: "Technical Skills",
@@ -65,7 +86,7 @@ const phaseTwoButtons = [
     title: "Technical Skills",
     description:
       "A compact map of the tools, platforms, and frameworks I use across backend systems, cloud workflows, AI integrations, and frontend delivery.",
-    contentType: "skills" as const,
+    contentType: "skills",
   },
   {
     id: "spring-boot",
@@ -73,7 +94,7 @@ const phaseTwoButtons = [
     outlineClass: "border-[#5f8f69] text-[#5f8f69] dark:border-[#88c790] dark:text-[#88c790]",
     title: "Spring Boot",
     description: "Production backend work focused on telematics ingestion, scoring pipelines, and stable large-scale operations.",
-    contentType: "rich" as const,
+    contentType: "rich",
     cardHeading: "Production Grade Telematics Backend",
     content: [
       "Developed and maintained a high-throughput telematics backend to ingest real-time trip data from mobile devices, process driving behavior, and generate driver scores.",
@@ -91,7 +112,7 @@ const phaseTwoButtons = [
     outlineClass: "border-[#5e75d8] text-[#5e75d8] dark:border-[#8da0ff] dark:text-[#8da0ff]",
     title: "GenAi",
     description: "Backend and AI workflow engineering for real-time contact-centre support and agent assistance.",
-    contentType: "rich" as const,
+    contentType: "rich",
     cardHeading: "Contact Centre Assistant (Backend + AI Systems)",
     content: [
       "Built backend APIs using FastAPI (Python) for a GenAI-powered contact centre assistant used by customer support executives.",
@@ -109,7 +130,7 @@ const phaseTwoButtons = [
     outlineClass: "border-[#af6dd1] text-[#af6dd1] dark:border-[#d39dff] dark:text-[#d39dff]",
     title: "Personal Projects",
     description: "A lighter side of the portfolio: curiosity-led builds from my learning phase, made while exploring, experimenting, and enjoying the process.",
-    contentType: "projects" as const,
+    contentType: "projects",
     cardHeading: "Built from curiosity, late-night learning, and a lot of experimenting",
     content: [
       "These are projects I made out of curiosity during my learning phase in academics. They are playful, exploratory, and each one marks a small step in how I learned to build for the web.",
@@ -141,7 +162,7 @@ const phaseTwoButtons = [
 ];
 
 export function InfoSections() {
-  const [activeCard, setActiveCard] = useState<(typeof phaseTwoButtons)[number] | null>(null);
+  const [activeCard, setActiveCard] = useState<PhaseTwoCard | null>(null);
 
   useEffect(() => {
     if (!activeCard) {
