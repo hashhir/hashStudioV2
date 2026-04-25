@@ -22,7 +22,7 @@ export function SiteHeader() {
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.25 }}
       className="fixed inset-x-0 top-0 z-40 px-4 pt-4 sm:px-6 lg:px-10"
     >
-      <div className="glass-panel mx-auto flex max-w-7xl items-center justify-between rounded-full px-4 py-3 sm:px-6">
+      <div className="glass-panel mx-auto flex max-w-7xl items-center justify-between rounded-2xl px-4 py-3 sm:px-6">
         <Link href="#" className="flex items-center gap-2.5">
           <span className="font-display text-xl font-extrabold tracking-[0.18em]">#</span>
           <span className="font-logo text-xs font-semibold tracking-[0.22em] sm:text-sm">

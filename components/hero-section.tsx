@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export function HeroSection() {
   return (
     <section className="relative flex min-h-screen items-center px-4 pb-20 pt-32 sm:px-6 lg:px-10">
-      <div className="mx-auto flex w-full max-w-7xl items-center">
+      <div className="mx-auto flex min-h-[calc(100vh-8rem)] w-full max-w-7xl flex-col justify-center gap-12">
         <div className="max-w-5xl">
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -23,20 +23,21 @@ export function HeroSection() {
             className="font-display font-extrabold leading-[0.88] tracking-[-0.07em] text-foreground"
           >
             <span className="block text-[13vw] sm:text-[9.6vw] md:text-[8.6vw] lg:text-[8.6rem]">Hashir</span>
-            <span className="block text-[11vw] sm:text-[8.5vw] md:text-[7.8vw] lg:text-[8.6rem]">Muhammed</span>
+            <span className="block text-[9.4vw] sm:text-[8.5vw] md:text-[7.8vw] lg:text-[8.6rem]">Muhammed</span>
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, delay: 0.75 }}
-            className="mt-6 max-w-[18rem] text-[0.72rem] uppercase leading-5 tracking-[0.07em] text-muted sm:mt-8 sm:max-w-2xl sm:text-[0.9rem] sm:leading-6 sm:tracking-[0.08em]"
-          >
-            <span className="block">Indian raised, Kochi based</span>
-            <span className="block">THREE years of experience in backend</span>
-            <span className="block">Java, Spring Boot, python, GenAi</span>
-          </motion.p>
         </div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.85, delay: 0.75 }}
+          className="mt-6 max-w-[18rem] self-start text-[0.72rem] uppercase leading-5 tracking-[0.07em] text-muted sm:mt-8 sm:max-w-2xl sm:text-[0.9rem] sm:leading-6 sm:tracking-[0.08em]"
+        >
+          <span className="block">Indian raised, Kochi based</span>
+          <span className="block">THREE years of experience in backend</span>
+          <span className="block">Java, Spring Boot, python, GenAi</span>
+        </motion.p>
       </div>
     </section>
   );
