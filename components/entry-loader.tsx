@@ -1,11 +1,16 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export function EntryLoader() {
+export function EntryLoader({ onComplete }: { onComplete?: () => void }) {
   const [count, setCount] = useState(1);
   const [visible, setVisible] = useState(true);
+  const onCompleteRef = useRef(onComplete);
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete;
+  }, [onComplete]);
 
   useEffect(() => {
     let current = 1;
@@ -16,7 +21,10 @@ export function EntryLoader() {
 
       if (current >= 100) {
         window.clearInterval(interval);
-        window.setTimeout(() => setVisible(false), 260);
+        window.setTimeout(() => {
+          setVisible(false);
+          onCompleteRef.current?.();
+        }, 260);
       }
     }, 18);
 
