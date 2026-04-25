@@ -23,7 +23,7 @@ export function HeroSection() {
             className="font-display font-extrabold leading-[0.88] tracking-[-0.07em] text-foreground"
           >
             <span className="block text-[13vw] sm:text-[9.6vw] md:text-[8.6vw] lg:text-[8.6rem]">Hashir</span>
-            <span className="block text-[9.4vw] sm:text-[8.5vw] md:text-[7.2vw] lg:text-[7.1rem] xl:text-[7.5rem]">Muhammed</span>
+            <span className="block text-[9.4vw] sm:text-[8.5vw] md:text-[7.2vw] lg:text-[7.1rem] xl:text-[8rem] 2xl:text-[8.4rem]">Muhammed</span>
           </motion.h1>
 
         </div>
