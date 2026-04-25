@@ -13,7 +13,7 @@ export function HeroSection() {
             transition={{ duration: 0.8, delay: 0.45 }}
             className="mb-5 text-[0.56rem] uppercase tracking-[0.3em] text-muted sm:mb-6 sm:text-[0.76rem] sm:tracking-[0.4em]"
           >
-            Senior Software Developer
+            Senior Software De{"<>"}eloper
           </motion.p>
 
           <motion.h1
@@ -46,7 +46,8 @@ export function HeroSection() {
             transition={{ duration: 0.75, delay: 0.82 }}
             className="flex w-fit flex-col gap-2 sm:self-end"
           >
-            <span className="inline-flex w-fit items-center rounded-lg border border-[#4f9d69] px-4 py-2 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-[#4f9d69] dark:border-[#7fd39a] dark:text-[#7fd39a] sm:text-xs">
+            <span className="inline-flex w-fit items-center gap-2 rounded-lg border border-[#4f9d69] px-4 py-2 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-[#4f9d69] dark:border-[#7fd39a] dark:text-[#7fd39a] sm:text-xs">
+              <span className="h-2 w-2 rounded-full bg-[#4f9d69] dark:bg-[#7fd39a]" />
               Available for work
             </span>
             <span className="inline-flex w-fit items-center rounded-lg border border-foreground/25 px-4 py-2 text-[0.68rem] font-medium uppercase tracking-[0.18em] text-muted sm:text-xs">
