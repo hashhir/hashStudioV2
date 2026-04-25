@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export function HeroSection() {
   return (
     <section className="relative flex min-h-screen items-center px-4 pb-20 pt-32 sm:px-6 lg:px-10">
-      <div className="mx-auto flex min-h-[calc(100vh-8rem)] w-full max-w-7xl flex-col justify-center gap-12">
+      <div className="mx-auto flex min-h-[calc(100vh-8rem)] w-full max-w-[92rem] flex-col justify-center gap-12">
         <div className="max-w-5xl">
           <motion.p
             initial={{ opacity: 0, y: 24 }}
