@@ -75,14 +75,31 @@ export function ChatAssistant() {
 
   return (
     <>
-      <button
+      <motion.button
         type="button"
         onClick={() => setOpen((value) => !value)}
+        animate={{
+          y: [0, -4, 0],
+          boxShadow: [
+            "0 0 0 rgba(235, 58, 42, 0)",
+            "0 0 24px rgba(235, 58, 42, 0.22)",
+            "0 0 0 rgba(235, 58, 42, 0)",
+          ],
+        }}
+        transition={{
+          duration: 2.6,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
         className="glass-panel fixed bottom-5 right-4 z-50 flex items-center gap-2 rounded-2xl px-4 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-foreground shadow-glow sm:bottom-6 sm:right-6"
       >
-        <span className="h-2.5 w-2.5 rounded-full bg-accent" />
-        Ask About Me
-      </button>
+        <motion.span
+          animate={{ scale: [1, 1.35, 1], opacity: [1, 0.72, 1] }}
+          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+          className="h-2.5 w-2.5 rounded-full bg-accent"
+        />
+        ASK
+      </motion.button>
 
       <AnimatePresence>
         {open ? (
