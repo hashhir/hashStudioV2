@@ -28,7 +28,7 @@ export function HeroSection() {
 
         </div>
 
-        <div className="mt-[5.5rem] flex w-full flex-col gap-5 sm:mt-24 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mt-10 flex w-full flex-col gap-5 sm:mt-16 sm:flex-row sm:items-end sm:justify-between">
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
