@@ -8,12 +8,6 @@ type Message = {
   content: string;
 };
 
-const starterQuestions = [
-  "What backend technologies has Hashir worked with?",
-  "Tell me about his GenAI experience.",
-  "What personal projects has he built?",
-];
-
 export function ChatAssistant() {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
@@ -21,7 +15,7 @@ export function ChatAssistant() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Ask me about Hashir's backend, GenAI, projects, or experience.",
+      content: "Ask about Hashir's professional details, experience, skills, projects, or contact information.",
     },
   ]);
 
@@ -114,6 +108,9 @@ export function ChatAssistant() {
               <div>
                 <p className="text-[11px] uppercase tracking-[0.26em] text-muted">Portfolio Assistant</p>
                 <h3 className="mt-2 font-display text-2xl font-bold tracking-[-0.04em]">Ask about Hashir</h3>
+                <p className="mt-1 text-xs leading-5 text-muted">
+                  Professional details, experience, skills, projects, and contact.
+                </p>
               </div>
               <button
                 type="button"
@@ -123,20 +120,6 @@ export function ChatAssistant() {
               >
                 X
               </button>
-            </div>
-
-            <div className="flex flex-wrap gap-2 px-5 py-3">
-              {starterQuestions.map((question) => (
-                <button
-                  key={question}
-                  type="button"
-                  disabled={loading}
-                  onClick={() => void sendMessage(question)}
-                  className="rounded-full border border-border bg-background/35 px-3 py-2 text-[11px] uppercase tracking-[0.12em] text-muted transition-colors duration-300 hover:text-foreground disabled:opacity-60"
-                >
-                  {question}
-                </button>
-              ))}
             </div>
 
             <div className="flex-1 space-y-3 overflow-y-auto px-5 py-4">

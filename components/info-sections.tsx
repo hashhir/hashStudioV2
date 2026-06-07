@@ -67,6 +67,9 @@ const skillGroups = [
   "LLM",
   "RAG",
   "Lang Graph",
+  "Microsoft Copilot Studio",
+  "Power Automate",
+  "Power Apps",
   "Git",
 ];
 
